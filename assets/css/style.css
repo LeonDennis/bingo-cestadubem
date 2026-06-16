@@ -46,7 +46,7 @@ html {
 * {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-  -moz-user-select: none;
+  -moz-user-select: none; /* Firefox */
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
@@ -80,6 +80,7 @@ body {
   height:720px;
   width:1280px;
   font-size:30px;
+  overflow:hidden;
 }
 
 #fader {
@@ -163,7 +164,6 @@ body {
   grid-template-columns:255px 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100%;
   grid-template-areas: "controlsCol  bCol  iCol  nCol  gCol  oCol";
-  overflow:hidden;
 }
 
 #settingsSlide {
@@ -550,22 +550,25 @@ margin:0.5em 0;
   background:#9b9b9b;
   border:2.5px solid #333;
   opacity:0.21;
-}
 
-#bigBingoBall {
   border-radius:50%;
   width:186px;
   height:186px;
   margin:0 auto;
-  margin-top:135px;
   cursor:pointer;
+}
+
+#bigBingoBall {
+  margin-top:0px; /*Define a distância vertical entre as bolas */
+  cursor:default;
 }
 
 .bigBingoBallClass:hover {
   opacity:0.35;
 }
 
-#bigBingoLetter {
+#bigBingoLetter,
+#previousBingoLetter {
   font-size:62px;
   font-weight:700;
   text-align:center;
@@ -575,7 +578,8 @@ margin:0.5em 0;
   margin-top:12px;
 }
 
-#bigBingoNumber {
+#bigBingoNumber,
+#previousBingoNumber {
   font-size:95px;
   font-weight:700;
   text-align:center;
@@ -609,7 +613,7 @@ margin:0.5em 0;
 }
 
 #ballsRemaining {
-  display:none;
+  display:"none";
   align-items:center;
   justify-content:center;
 }
@@ -803,6 +807,26 @@ color:gray;
   color:rgb(164,70,153);
 }
 
+#cestadubem {
+  color:#809f90;
+}
+
+#hideBoard,
+#showBoard {
+    display: none !important;
+}
+
+#drawBallDiv {
+    display: none;
+}
+
+#logoCestaDuBem { /* Opcional, deixa o logo cestadubem um pouco menor, aprox. do tamanho das bolas de bingo. */
+    width: 180px;
+    display: block;
+    margin: 20px auto;
+    display:none; /* Serve para não aparecer o logotipo após o carregamento. */
+}
+
 .chromeBingoLetterFix {
   transform:translateX(-50%) translateZ(0);
 }
@@ -915,4 +939,92 @@ color:gray;
   height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr;
+}
+
+#ballContainer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+ /* margin-top:20px; Valores negativos sobem a posição de ambas as bolas, e positivos descem elas. */
+}
+
+#previousBingoBall {
+    border-radius: 50%;
+    width: 186px;
+    height: 186px;
+    cursor:pointer;
+}
+
+.ballLabel {
+  text-align:center;
+  font-size:20px;
+  font-weight:700;
+  margin-top:-5px;
+  margin-bottom:10px;
+}
+
+.ballWrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#languageButtons {
+    display: inline-flex;
+    gap: 5px;
+}
+
+#bingoCelebration {
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.45);
+
+    z-index:9999;
+
+    justify-content:center;
+    align-items:center;
+
+    pointer-events:none;
+}
+
+#bingoText {
+
+    font-size:120px;
+
+    font-weight:bold;
+
+    color:white;
+
+    animation:bingoPulse 1s infinite;
+
+    text-shadow:
+      0 0 20px gold,
+      0 0 40px gold,
+      0 0 60px gold;
+}
+
+@keyframes bingoPulse {
+
+    0% {
+        transform:scale(1);
+    }
+
+    50% {
+        transform:scale(1.15);
+    }
+
+    100% {
+        transform:scale(1);
+    }
+
 }

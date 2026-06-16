@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <title>Bingo Master Board</title>
 		<meta charset="UTF-8">
 		<meta name="description" content="Host and manage Bingo games on the Web">
 		<meta name="author" content="Games by Tim">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<link rel="shortcut icon" href="./assets/img/favicon.ico" />
+		<link rel="shortcut icon" href="assets/img/favicon.ico" />
 		<meta name="format-detection" content="telephone=no">
 		<meta name="apple-mobile-web-app-title" content="Bingo Board">
-		<link rel="apple-touch-icon" href="./assets/img/appIcon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#d1cc85"/>
-    <link rel="manifest" href="./manifest.json">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/img/appIcon.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
 
     <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -156,9 +154,9 @@
           <div class="flexCenter" id="howToUseThanks">
             <div style="text-align:center;font-size:26px;">
               <p>Thanks for using Bingo Master Board! I really appreciate it.</p>
-              <p><strong>View the source code</strong> on <a href="https://github.com/TimTree/bingo-master-board" target="_blank" rel="noopener">GitHub</a>.</p>
-              <p><strong>Send me a comment</strong> on the <a href="https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html" target="_blank" rel="noopener">project description page</a>.</p>
-              <p><strong>Report bugs</strong> to the <a href="https://github.com/TimTree/bingo-master-board/issues" target="_blank" rel="noopener">GitHub issues page</a>.</p>
+              <p><strong>View the source code</strong> on <a href="https://github.com/TimTree/bingo-master-board" target="_blank">GitHub</a>.</p>
+              <p><strong>Send me a comment</strong> on the <a href="https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html" target="_blank">project description page</a>.</p>
+              <p><strong>Report bugs</strong> to the <a href="https://github.com/TimTree/bingo-master-board/issues" target="_blank">GitHub issues page</a>.</p>
               <p><strong>See the project's <a class="textLink" onclick="hide('howToUseSlide');show('aboutCreditsSlide', 'grid');">About/Credits</a>.</strong></p>
               <p><em>~Games by Tim</em></p>
             </div>
@@ -195,11 +193,11 @@
                   <span><strong>Released (PPT):</strong> Sept. 3, 2011</span>
                   <span><strong>Released (Web):</strong> Sept. 17, 2018</span>
                   <span><strong>Updated:</strong> Nov. 10, 2018</span>
-                  <span><strong>License:</strong> <a href="./LICENSE" target="_blank" rel="noopener">MIT</a></span>
-                  <span style="margin-top:0.8em;font-size:22px;"><a href="https://github.com/TimTree/bingo-master-board" target="_blank" rel="noopener">GitHub Repo</a>
-                  &nbsp;&nbsp;&nbsp;<a href="https://github.com/TimTree/bingo-master-board/releases" target="_blank" rel="noopener">Release History</a></span>
+                  <span><strong>License:</strong> <a href="./LICENSE" target="_blank">MIT</a></span>
+                  <span style="margin-top:0.8em;font-size:22px;"><a href="https://github.com/TimTree/bingo-master-board" target="_blank">GitHub Repo</a>
+                  &nbsp;&nbsp;&nbsp;<a href="https://github.com/TimTree/bingo-master-board/releases" target="_blank">Release History</a></span>
                   <span style="margin-top:0.8em;text-align:center;">For more projects by the creator, visit<br>
-                    <a href="https://www.gamesbytim.com" target="_blank" rel="noopener"><strong>Games by Tim</strong></a>.</span>
+                    <a href="https://www.gamesbytim.com" target="_blank"><strong>Games by Tim</strong></a>.</span>
                 </div>
               </div>
             </div>
@@ -242,7 +240,7 @@
           <div>
             <h3 style="margin-top:0.5em;">Welcome to <span style="color:#ce181e;">Bingo</span> <span style="color:#948a54;">Master Board</span></h3>
             <p class="smallMargin">
-              <img src="./assets/img/Onboarding.png" alt="onboarding" width="650">
+              <img src="./assets/img/Onboarding.png" width="650">
             </p>
             <p class="smallMargin" style="font-size:24px;"><strong>Host and manage</strong> Bingo games.</p>
             <p class="smallMargin" style="font-size:24px;"><strong>Randomly draw</strong> Bingo balls. <strong>Set your own</strong> winning pattern and look.</p>
@@ -253,15 +251,24 @@
         </div>
       </div>
 
+      
       <div id="masterBoardSlide">
         <div id="blocker"></div>
         <div class="controlsCol">
           <div style="margin:-6px 0 0 28px;">
             <span class="smallButton" id="reset" onclick="resetBoard();">Reset</span>
             <span class="smallButton" id="themes" onclick="hide('masterBoardSlide');show('settingsSlide', 'grid');">Themes</span>
+            <div id="languageButtons">
+              <button onclick="changeLanguage('pt')">🇧🇷</button>
+              <button onclick="changeLanguage('en')">🇺🇸</button>
+            </div>
           </div>
           <div class="winningPatternDiv">
-            <div class="bingoCard" onclick="hide('masterBoardSlide');show('winningPatternSlide', 'grid');">
+              <img
+                src="./assets/img/logoeslogan_cestadubem.png"
+                id="logoCestaDuBem"
+                alt="Cesta DuBem">
+            <div class="bingoCard" id="bingoCardOriginal" style="display:none;"onclick="hide('masterBoardSlide');show('winningPatternSlide', 'grid');">
               <div class="bingoCardHeader">B</div>
               <div class="bingoCardHeader">I</div>
               <div class="bingoCardHeader">N</div>
@@ -294,16 +301,39 @@
               <div class="bingoCardBody" id="25card"></div>
             </div>
           </div>
-          <div class="bigBingoBallClass" id="bigBingoBall" onclick="toggleBallsDrawnRemaining('toggle');">
-            <div id="bigBingoLetter">&nbsp;</div>
-            <div id="bigBingoNumber">&nbsp;</div>
-          </div>
-          <div id="ballsDrawnRemaining">
+
+          <div class="ballWrapper">
+
+    <div class="bigBingoBallClass" id="previousBingoBall" onclick="clearPreviousBall()">
+        <div id="previousBingoLetter">&nbsp;</div>
+        <div id="previousBingoNumber">&nbsp;</div>
+    </div>
+
+    <div class="ballLabel" id="previousBallLabel">
+        Bola sorteada anteriormente
+    </div>
+
+</div>
+
+<div class="ballWrapper">
+
+    <div class="bigBingoBallClass" id="bigBingoBall">
+        <div id="bigBingoLetter">&nbsp;</div>
+        <div id="bigBingoNumber">&nbsp;</div>
+    </div>
+
+    <div class="ballLabel" id="lastBallLabel">
+        Última bola sorteada
+    </div>
+
+</div>
+
+          <div id="ballsDrawnRemaining" style="display: none;"><!--style="display: none;" para desativar os contadores de bolas restantes/preenchidas, mas a função ainda está disponível caso necessário-->
             <span id="ballsDrawn">
               <span id="ballsDrawnNum" style="font-size:38px;font-weight:700;"></span>
                &nbsp;drawn
             </span>
-            <span id="ballsRemaining">
+            <span id="ballsRemaining" style="display: none;">
               <span id="ballsRemainingNum" style="font-size:38px;font-weight:700;"></span>
                &nbsp;remaining
            </span>
@@ -446,6 +476,7 @@
               <p class="themeSelection" style="margin-bottom:1.5em;">
                 <span class="themeColor" id="blue" onclick="changeBackgroundColor('blue');">Blue</span>
                 <span class="themeColor" id="purple" onclick="changeBackgroundColor('purple');">Purple</span>
+                <span class="themeColor" id="cestadubem" onclick="changeBackgroundColor('cestadubem');">Cesta DuBem</span>
               </p>
               <p><strong>Bingo Numbers</strong></p>
               <p style="display:flex;justify-content:center;">
@@ -537,6 +568,13 @@
 
     <script src="./assets/js/featureChecker.js"></script>
     <script src="./assets/js/main.js"></script>
+
+
+    <div id="bingoCelebration">
+        <div id="bingoText">
+        🎉 BINGO! 🎉
+        </div>
+    </div>
 
   </body>
 </html>

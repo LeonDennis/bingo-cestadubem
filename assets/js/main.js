@@ -6,7 +6,7 @@ let keyPressed = false;
 
 let saveData = {
   drawnBingoBalls: [],
-  themeColor: "classic",
+  themeColor: "cestadubem",
   bingoStyle: "ball",
   blockerEnabled: false,
   lastActionWasRemove: false,
@@ -39,6 +39,7 @@ function init() {
 	window.addEventListener('resize', resize);
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
+	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 	const bingoBallClass = document.querySelectorAll(".bingoBall");
 	for (let i = 0; i < bingoBallClass.length; i+=1) {
 		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(i+1)});
@@ -75,6 +76,7 @@ function init() {
   img1.src = "./assets/img/fullscreenUpHover.svg";
   img2.src = "./assets/img/fullscreenDownHover.svg";
   img3.src = "./assets/img/homeButtonHover.svg";
+  updateThemeVisuals(); //Esta função no final de init() corrige o bug do logo cestadubem aparecer em todos os temas após a página ser recarregada. 
 }
 
 function resize() {
@@ -99,7 +101,7 @@ function resize() {
 }
 
 function onFullScreenChange() {
-  var fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement;
+  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
   if (fullscreenElement === null || fullscreenElement === undefined) {
     isFullScreen = false;
   } else {
@@ -144,6 +146,7 @@ function show(elementName, display) {
         else if (e.keyCode === 86) {toggleBallsDrawnRemaining('toggle');}
         else if (e.keyCode === 72) {hide('masterBoardSlide');show('titleSlide');}
         else if (e.keyCode === 70) {toggleFullScreen();}
+        else if (e.keyCode === 80) {celebrateBingo();}
       }
     }
 	}
@@ -230,16 +233,20 @@ function hide(elementName) {
 function toggleFullScreen(event) {
 	const canvas = document.body;
 	if (isFullScreen === false) {
-		if(canvas.requestFullscreen) {
-			canvas.requestFullscreen();
-		} else if(canvas.webkitRequestFullscreen) {
-			canvas.webkitRequestFullscreen();
+		if(canvas.requestFullScreen) {
+			canvas.requestFullScreen();
+		} else if(canvas.webkitRequestFullScreen) {
+			canvas.webkitRequestFullScreen();
+		} else if(canvas.mozRequestFullScreen) {
+			canvas.mozRequestFullScreen();
 		}
 		isFullScreen = true;
 	}
 	else if (isFullScreen === true) {
 		if(document.exitFullscreen) {
 	  		document.exitFullscreen();
+			} else if(document.mozCancelFullScreen) {
+	  		document.mozCancelFullScreen();
 			} else if(document.webkitExitFullscreen) {
 	  		document.webkitExitFullscreen();
 			}
@@ -275,6 +282,9 @@ function changeBG(color) {
   } else if (color === "purple") {
     newColor = "rgb(189, 176, 216)";
     document.getElementById("blocker").style.backgroundImage = "linear-gradient(#b3a2c7, #725892)";
+  } else if (color === "cestadubem") {
+    newColor = "#809f90"; //Cor do plano de fundo
+    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#617d6f, #4a4f5d)"; //Cor do plano de fundo do blocker (botão "hide board")
   } else {
     newColor = "radial-gradient(#f7eaab, #bfbb73)";
   }
@@ -301,6 +311,26 @@ function activateBingoBall(bingoIDNum) {
       document.getElementById("bigBingoNumber").style.fontSize=95+"px";
     },100);
     saveData.drawnBingoBalls.push(bingoIDNum);
+    updatePreviousBall();
+    function updatePreviousBall() {
+
+    if (saveData.drawnBingoBalls.length < 2) {
+        document.getElementById("previousBingoLetter").innerHTML = "&nbsp;";
+        document.getElementById("previousBingoNumber").innerHTML = "&nbsp;";
+        return;
+    }
+
+    const previousNumber =
+        saveData.drawnBingoBalls[
+            saveData.drawnBingoBalls.length - 2
+        ];
+
+    document.getElementById("previousBingoLetter").innerHTML =
+        typeOfBingoLetter(previousNumber);
+
+    document.getElementById("previousBingoNumber").innerHTML =
+        previousNumber;
+  }
     saveData.lastActionWasRemove = false;
     save();
 	} else {
@@ -558,6 +588,8 @@ function resetBoard() {
   document.getElementById("bigBingoBall").classList.remove(document.getElementById("bigBingoBall").classList.item(1));
   document.getElementById("bigBingoLetter").innerHTML="&nbsp;";
   document.getElementById("bigBingoNumber").innerHTML="&nbsp;";
+  document.getElementById("previousBingoLetter").innerHTML="&nbsp;";
+  document.getElementById("previousBingoNumber").innerHTML="&nbsp;";
   const bingoBallsClass = document.querySelectorAll(".bingoBalls");
   for (let i = 0; i < bingoBallsClass.length; i+=1) {
     bingoBallsClass[i].classList.add("notransition");
@@ -642,6 +674,7 @@ function setUpSettings() {
   document.getElementById("green").style.backgroundColor = "";
   document.getElementById("blue").style.backgroundColor = "";
   document.getElementById("purple").style.backgroundColor = "";
+  document.getElementById("cestadubem").style.backgroundColor = "";
   document.getElementById("bingoStyleBall").style.backgroundColor = "";
   document.getElementById("bingoStyleVintage").style.backgroundColor = "";
   if (saveData.themeColor === "classic") {
@@ -654,12 +687,15 @@ function setUpSettings() {
     document.getElementById("blue").style.backgroundColor = "rgba(51,102,255,0.2)";
   } else if (saveData.themeColor === "purple") {
     document.getElementById("purple").style.backgroundColor = "rgba(164,70,153,0.2)";
+  } else if (saveData.themeColor === "cestadubem") {
+    document.getElementById("cestadubem").style.backgroundColor = "#617d6f43"; //Cor do background do botão, em Themes
   }
   if (saveData.bingoStyle === "ball") {
     document.getElementById("bingoStyleBall").style.backgroundColor = "rgba(0,0,0,0.15)";
   } else if (saveData.bingoStyle === "vintage") {
     document.getElementById("bingoStyleVintage").style.backgroundColor = "rgba(0,0,0,0.15)";
   }
+  updateThemeVisuals();
 }
 
 function changeBackgroundColor(theColor) {
@@ -834,4 +870,106 @@ function keyboardNavCredits(leftOrRight) {
       creditsHelp("About");
     }
   }
+}
+
+function updateThemeVisuals() {
+
+  const logo = document.getElementById("logoCestaDuBem");
+  const card = document.getElementById("bingoCardOriginal");
+
+  if (saveData.themeColor === "cestadubem") {
+
+    logo.style.display = "block";
+    card.style.display = "none";
+
+  } else {
+
+    logo.style.display = "none";
+    card.style.display = "";
+
+  }
+
+}
+
+const translations = {
+
+  en: {
+    howToUse: "How to Use",
+    masterBoard: "Master Board",
+    previousBall: "Previous Ball",
+    previousBallTooltip: "Click to clear; Double click on the last drawn ball to restore the previous one.",
+    lastBall: "Last Ball",
+    themes: "Themes",
+    reset: "Reset"
+  },
+
+  pt: {
+    howToUse: "Como Utilizar",
+    masterBoard: "Iniciar jogo",
+    previousBall: "Bola sorteada anteriormente",
+    previousBallTooltip: "Clique para limpar; Duplo clique na última bola sorteada restaura a penúltima.",
+    lastBall: "Última bola sorteada",
+    themes: "Temas",
+    reset: "Reiniciar"
+  }
+
+}
+
+function changeLanguage(lang) {
+
+    localStorage.setItem("language", lang);
+
+    document.getElementById("howToUse").innerText =
+        translations[lang].howToUse;
+
+    document.getElementById("goToMasterBoard").innerText =
+        translations[lang].masterBoard;
+
+    document.getElementById("previousBallLabel").innerText =
+        translations[lang].previousBall;
+
+    document.getElementById("previousBingoBall").title =
+        translations[lang].previousBallTooltip;
+
+    document.getElementById("lastBallLabel").innerText =
+        translations[lang].lastBall;
+
+    document.getElementById("themes").innerText =
+        translations[lang].themes;
+
+    document.getElementById("reset").innerText =
+        translations[lang].reset;
+        
+}
+
+const savedLanguage =
+    localStorage.getItem("language") || "pt";
+
+changeLanguage(savedLanguage);
+
+document.getElementById("languageSelector").value =
+    savedLanguage;
+
+function celebrateBingo() {
+
+    const celebration =
+        document.getElementById("bingoCelebration");
+
+    celebration.style.display = "flex";
+
+    celebration.style.animation = "none";
+
+    setTimeout(() => {
+        celebration.style.animation = "";
+    }, 10);
+
+    setTimeout(() => {
+        celebration.style.display = "none";
+    }, 3000);
+
+}
+
+function clearPreviousBall() {
+    document.getElementById("previousBingoLetter").innerHTML = "&nbsp;";
+    document.getElementById("previousBingoNumber").innerHTML = "&nbsp;";
 }
