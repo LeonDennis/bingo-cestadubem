@@ -895,22 +895,54 @@ const translations = {
 
   en: {
     howToUse: "How to Use",
-    masterBoard: "Master Board",
+    masterBoard: "Start game",
     previousBall: "Previous Ball",
     previousBallTooltip: "Click to clear; Double click on the last drawn ball to restore the previous one.",
     lastBall: "Last Ball",
     themes: "Themes",
-    reset: "Reset"
+    reset: "Reset",
+    classic: "Classic",
+    red: "Red",
+    green: "Green",
+    blue: "Blue",
+    purple: "Purple",
+    bingoNumbersLabel: "Bingo Numbers",
+    themesLabel: "Themes",
+    helpFooterLabel: "Go Back",
+    copyrightLabel: "©2011-2018 Games by Tim; 1.0.1 Cesta DuBem ver. by LeonDennis ~ About/Credits",
+    editionText: "· Cesta DuBem Edition",
+    howToUseBasicsHeader: "Basics",
+    howToUseBasics2Header: "Basics 2",
+    howToUseTipsTricksHeader: "Tips & Tricks",
+    howToUseThanksHeader: "Thank You",
+    creditsAboutHeader: "About",
+    creditsCreditsHeader: "Credits"
   },
 
   pt: {
     howToUse: "Como Utilizar",
     masterBoard: "Iniciar jogo",
     previousBall: "Bola sorteada anteriormente",
-    previousBallTooltip: "Clique para limpar; Duplo clique na última bola sorteada restaura a penúltima.",
+    previousBallTooltip: "Clique para limpar; Duplo clique na última bola sorteada restaura a sorteada anteriormente.",
     lastBall: "Última bola sorteada",
     themes: "Temas",
-    reset: "Reiniciar"
+    reset: "Reiniciar",
+    classic: "Clássico",
+    red: "Vermelho",
+    green: "Verde",
+    blue: "Azul",
+    purple: "Roxo",
+    bingoNumbersLabel: "Estilo dos números do Bingo",
+    themesLabel: "Temas",
+    helpFooterLabel: "Voltar",
+    copyrightLabel: "©2011-2018 Games by Tim; 1.0.1 Cesta DuBem ver. por Leon Dennis ~ Sobre/Créditos",
+    editionText: "· Versão Cesta DuBem",
+    howToUseBasicsHeader: "Básico",
+    howToUseBasics2Header: "Básico 2",
+    howToUseTipsTricksHeader: "Atalhos",
+    howToUseThanksHeader: "Agradecimentos",
+    creditsAboutHeader: "Sobre",
+    creditsCreditsHeader: "Créditos"
   }
 
 }
@@ -940,6 +972,54 @@ function changeLanguage(lang) {
     document.getElementById("reset").innerText =
         translations[lang].reset;
         
+    document.getElementById("classic").innerText =
+        translations[lang].classic;
+
+    document.getElementById("red").innerText =
+        translations[lang].red;
+
+    document.getElementById("green").innerText =
+        translations[lang].green;
+
+    document.getElementById("blue").innerText =
+        translations[lang].blue;
+
+    document.getElementById("purple").innerText =
+        translations[lang].purple;
+        
+    document.getElementById("bingoNumbersLabel").innerText =
+        translations[lang].bingoNumbersLabel;
+
+    document.getElementById("themesLabel").innerText =
+        translations[lang].themesLabel;
+
+    document.getElementById("helpFooterLabel").innerText =
+        translations[lang].helpFooterLabel;
+
+    document.getElementById("copyrightLabel").innerText =
+        translations[lang].copyrightLabel;
+
+    document.getElementById("editionText").innerText =
+        translations[lang].editionText;
+    
+    document.getElementById("howToUseBasicsHeader").innerText =
+        translations[lang].howToUseBasicsHeader;
+
+    document.getElementById("howToUseBasics2Header").innerText =
+        translations[lang].howToUseBasics2Header;
+
+    document.getElementById("howToUseTipsTricksHeader").innerText =
+        translations[lang].howToUseTipsTricksHeader;
+
+    document.getElementById("howToUseThanksHeader").innerText =
+        translations[lang].howToUseThanksHeader;
+
+    document.getElementById("creditsAboutHeader").innerText =
+        translations[lang].creditsAboutHeader;
+
+    document.getElementById("creditsCreditsHeader").innerText =
+        translations[lang].creditsCreditsHeader;
+
 }
 
 const savedLanguage =

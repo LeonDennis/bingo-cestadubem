@@ -115,7 +115,7 @@ body {
   font-size:66px;
   font-family:caladea;
   font-style:italic;
-  color:#948a54;
+  color:#617d6f;
   text-align:center;
   margin-bottom:1.3em;
 }
@@ -139,6 +139,7 @@ body {
   background-image:url("../img/bingoRoller.svg");
   background-size: contain;
   background-repeat:no-repeat;
+  
 }
 
 #howToUseSlide, #aboutCreditsSlide {
@@ -1027,4 +1028,11 @@ color:gray;
         transform:scale(1);
     }
 
+}
+
+#editionText{
+    font-size:40%;
+    color:#617d6f;
+    font-style:normal;
+    font-weight:bold;
 }

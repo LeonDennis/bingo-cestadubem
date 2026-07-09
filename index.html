@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bingo Master Board</title>
+    <title>Bingo Cesta DuBem</title>
 		<meta charset="UTF-8">
 		<meta name="description" content="Host and manage Bingo games on the Web">
-		<meta name="author" content="Games by Tim">
+		<meta name="author" content="Games by Tim, Cesta DuBem ver. by Leon Dennis">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 		<link rel="shortcut icon" href="assets/img/favicon.ico" />
 		<meta name="format-detection" content="telephone=no">
@@ -77,6 +77,9 @@
             </div>
             <div id="subheading">
               Master Board
+                <span id="editionText">
+                  · Cesta DuBem Edition
+                </span>
             </div>
             <div id="titleSelection">
               <div id="howToUse" onclick ="hide('titleSlide');show('howToUseSlide', 'grid');">How to Use</div>
@@ -131,10 +134,10 @@
           </div>
           <div class="flexCenter" id="howToUseTipsTricks">
             <div style="text-align:center;">
-              <p style="font-size:27px;"><strong>Use keyboard shortcuts.</strong></p>
-              <p class="smallMargin" style="font-size:27px;">Draw balls with the <strong>space bar</strong>.</p>
-              <p class="smallMargin" style="font-size:27px;">Reset the board with the <strong>r key</strong>.</p>
-              <p style="font-size:23px;margin:1.5em 0 0.5em 0;"><strong>Other Shortcuts</strong></p>
+              <p id="howToUseKeyboardShortcutsLabel" style="font-size:27px;"><strong>Use keyboard shortcuts.</strong></p>
+              <p id="howToUseSpaceBarLabel" class="smallMargin" style="font-size:27px;">Draw balls with the <strong>space bar</strong>.</p>
+              <p id="howToUseRKeyLabel" class="smallMargin" style="font-size:27px;">Reset the board with the <strong>r key</strong>.</p>
+              <p id="howToUseOtherShortcutsLabel" style="font-size:23px;margin:1.5em 0 0.5em 0;"><strong>Other Shortcuts</strong></p>
               <div style="display:flex;align-items:center;justify-content:center;">
                 <div>
                   <p class="smallMargin" style="font-size:23px;"><strong>f</strong> - Toggle fullscreen</p>
@@ -153,17 +156,16 @@
           </div>
           <div class="flexCenter" id="howToUseThanks">
             <div style="text-align:center;font-size:26px;">
-              <p>Thanks for using Bingo Master Board! I really appreciate it.</p>
-              <p><strong>View the source code</strong> on <a href="https://github.com/TimTree/bingo-master-board" target="_blank">GitHub</a>.</p>
-              <p><strong>Send me a comment</strong> on the <a href="https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html" target="_blank">project description page</a>.</p>
-              <p><strong>Report bugs</strong> to the <a href="https://github.com/TimTree/bingo-master-board/issues" target="_blank">GitHub issues page</a>.</p>
-              <p><strong>See the project's <a class="textLink" onclick="hide('howToUseSlide');show('aboutCreditsSlide', 'grid');">About/Credits</a>.</strong></p>
-              <p><em>~Games by Tim</em></p>
+              <p id="howToUseThanksLabel">Bingo CestaDuBem 2026</p>
+              <p id="howToUseSourceLabel"><strong>O Código-fonte original</strong> está disponível no <a href="https://github.com/TimTree/bingo-master-board" target="_blank">GitHub do autor</a>.</p>
+              <p id="howToUseCommentLabel"><strong>Este bingo </strong> está disponível em minha página no <a href="https://github.com/LeonDennis/bingo-cestadubem" target="_blank">GitHub</a>.</p>
+              <p id="howToUseAboutLabel"><strong>Conheça o projeto CestaDuBem no Instagram </strong> <a href="https://www.instagram.com/cesta_dubem/" target="_blank">@cesta_dubem</a>.</p>
+              <p><em>~Leon Dennis</em></p>
             </div>
           </div>
         </div>
         <div class="helpFooter">
-          <div class="helpFooterLabel" onclick="hide('howToUseSlide');show('titleSlide');">
+          <div id="helpFooterLabel" class="helpFooterLabel" onclick="hide('howToUseSlide');show('titleSlide');">
             Main Menu
           </div>
         </div>
@@ -182,7 +184,7 @@
             <div class="twoSections">
               <div>
                 <div class="flexCenter" style="flex-direction:column;">
-                  <img src="./assets/img/appIcon.svg" width="300" style="box-shadow:5px 5px 10px rgba(0,0,0,0.25);border-radius:20px;">
+                  <img src="./assets/img/appIcon.svg" width="300" style="box-shadow:5px 5px 10px rgba(255, 3, 3, 0.25);border-radius:20px;">
                   <p><em>Bingo Master Board</em></p>
                 </div>
               </div>
@@ -229,7 +231,7 @@
           </div>
         </div>
         <div class="helpFooter">
-          <div class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
+          <div id="helpFooterLabel" class="helpFooterLabel" onclick="hide('aboutCreditsSlide');show('titleSlide');">
             Main Menu
           </div>
         </div>
@@ -463,7 +465,7 @@
       </div>
 
       <div id="settingsSlide">
-        <h2>Themes</h2>
+        <h2 id="themesLabel">Themes</h2>
         <div class="helpContent">
           <div class="flexCenter">
             <div style="text-align:center;">
@@ -478,7 +480,7 @@
                 <span class="themeColor" id="purple" onclick="changeBackgroundColor('purple');">Purple</span>
                 <span class="themeColor" id="cestadubem" onclick="changeBackgroundColor('cestadubem');">Cesta DuBem</span>
               </p>
-              <p><strong>Bingo Numbers</strong></p>
+              <p><strong id="bingoNumbersLabel">Bingo Numbers</strong></p>
               <p style="display:flex;justify-content:center;">
                 <span id="bingoStyleBall" onclick="changeBingoStyle('ball');">
                   <span class="bingoBallBall bingoBallBallActiveB">15</span>
@@ -491,7 +493,7 @@
           </div>
         </div>
         <div class="helpFooter">
-          <div class="helpFooterLabel" onclick="hide('settingsSlide');show('masterBoardSlide', 'grid');">
+          <div id="helpFooterLabel" class="helpFooterLabel" onclick="hide('settingsSlide');show('masterBoardSlide', 'grid');">
             Go Back
           </div>
         </div>
