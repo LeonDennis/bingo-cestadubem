@@ -38,7 +38,7 @@ Uso offline: Baixe o [__código-fonte__](https://github.com/LeonDennis/bingo-ces
 * __F__: Deixar o programa em fullscreen
 * __T__: Abrir o menu de temas
 * __X__: Ocultar/mostrar os números sorteados
-* __R__: Animação de vitória ("🎉 BINGO! 🎉")
+* __P__: Animação de vitória ("🎉 BINGO! 🎉")
 * __Clicar na "bola sorteada anteriormente" limpa o número mostrado, e dar um duplo clique na última bola sorteada restaura a anterior.__
 
 
