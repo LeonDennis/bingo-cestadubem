@@ -3,62 +3,42 @@
 </p>
 
 <p align="center">
-<a href="https://timtree.github.io/bingo-master-board"><strong>https://timtree.github.io/bingo-master-board</strong></a>
+<a href="https://github.com/LeonDennis/bingo-cestadubem"><strong>Bingo Master Board - Cesta DuBem ver.</strong></a>
 </p>
 
 <p align="center">
 <img src="./assets/img/BingoScreenshot1.png" alt="Bingo Master Board Screenshot" width="420">
 </p>
 
-Bingo Master Board helps you host and manage your own Bingo games. You can:
-* Randomly draw and project Bingo balls
-* Display the amount of balls drawn or remaining
-* Set a winning pattern
-* Change the look of the board with themes
-* Hide drawn Bingo numbers for a tougher game
-* Manually edit the board if you're drawing balls separately
+Este projeto, denomeado Bingo Master Board, fora editado por mim e operado também por mim mesmo como um auxiliar visual para os jogadores de um bingo presencial do grupo beneficente Cesta DuBem, tendo sido aplicado com sucesso no dia 22/06/2026 em Guarujá-SP.
 
-Bingo Master Board is designed for fullscreen on the Web.
+Edições feitas em relação ao projeto original:
+* Tema customizado com as cores do CestaDuBem
+* Traduções alternáveis entre PT-BR e EN
+* Mostrar na tela a penúltima bola sorteada
+* Pequena animação de vitória, ativada ao pressionar P.
+* Todas as funções do projeto original ainda estão disponíveis.
 
-## Getting Started
-The latest stable release is on [__GitHub Pages__](https://timtree.github.io/bingo-master-board).
+Este fork foi usado e testado no Firefox, mas deve funcionar em outros navegadores (e via mobile).
 
-For offline use, download the game as a [__ZIP file__](https://github.com/TimTree/bingo-master-board/archive/master.zip). Once downloaded, unzip the folder and open `index.html`.
+Para mais informações sobre o projeto original, favor referir-se ao repositório do autor inicial.
 
-The latest commits are located in the [__Develop branch__](https://github.com/TimTree/bingo-master-board/tree/develop). These builds are not production ready and should only be used for testing purposes.
+## Como utilizá-lo:
+To-do: Inserir este projeto no __GitHub Pages__.
 
-Bingo Master Board supports the latest versions of Edge, Firefox, Chrome, and Safari (including the iPad). __Internet Explorer is not supported.__
+Uso offline: Baixe o [__código-fonte__](https://github.com/LeonDennis/bingo-cestadubem/archive/refs/tags/proj.zip), extraia-o para seu dispositivo e abra o arquivo "index.html".
 
-### Use keyboard shortcuts!
-You can use the keyboard to use the master board more efficiently. Draw Bingo balls with the __space bar__. Reset the board with the __r key__.
 
-Find other keyboard shortcuts in the __How to Use__ page.
 
-## FAQ
-### What is the best way to give feedback?
-For general feedback, you can leave a comment on [my Website's project page](https://www.gamesbytim.com/2018/09/bingo-master-board-host-bingo-games-on.html). For bugs, see the next question.
+### Atalhos do teclado:
+* __Space__: Sortear uma bola aleatória
+* __R__: Reiniciar o jogo atual
+* __F__: Deixar o programa em fullscreen
+* __T__: Abrir o menu de temas
+* __X__: Ocultar/mostrar os números sorteados
+* __R__: Animação de vitória ("🎉 BINGO! 🎉")
+* __Clicar na "bola sorteada anteriormente" limpa o número mostrado, e dar um duplo clique na última bola sorteada restaura a anterior.__
 
-### I found a bug!
-Great! Report the bug on [GitHub issues](https://github.com/TimTree/bingo-master-board/issues), and I'll see what I can do to fix it. When reporting, let me know what browser you're using, and make sure someone else hasn't already reported the bug. Note that there may be bugs I can't fix if the bug is from the browser itself.
-
-If you feel confident, you can [send a pull request](https://github.com/TimTree/bingo-master-board/pulls) for bug fixes only. I've never dealt with a pull request before, so please bear with me if you do this. If I approve your pull request, you'll receive credit in the game's Credits page.
-
-### Wasn't there a PowerPoint version of this?
-
-The Bingo Master Board project started off using PowerPoint. It had two flavors:
-
-* Bingo Master Board - the original version.
-* Bingo Master Board PLUS - used macros to add random Bingo ball drawing
-
-This Web version supersedes both PowerPoint projects. Since we can use the PowerPoint PLUS features without macro security warnings, we're back to just one variant: Bingo Master Board.
-
-### Why did you switch from PowerPoint to the Web?
-
-There are multiple reasons for the switch, including, but not limited to, the following:
-* Vastly more accessible. No more paid software required, and the game can run on Linux and the iPad.
-* No downloads necessary. Just click the link to play.
-* No more worrying about macro security warnings
-* Ability to add features not possible with PowerPoint, like mouseover effects, keyboard shortcuts, and more.
 
 ## License
-Bingo Master Board is licensed under the MIT License.
+Bingo Master Board (including this fork) is licensed under the MIT License.
