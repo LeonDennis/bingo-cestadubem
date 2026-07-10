@@ -10,13 +10,15 @@
 <img src="./assets/img/BingoScreenshot1.png" alt="Bingo Master Board Screenshot" width="420">
 </p>
 
-Este projeto, denomeado Bingo Master Board, fora editado por mim e operado também por mim mesmo como um auxiliar visual para os jogadores de um bingo presencial do grupo beneficente Cesta DuBem, tendo sido aplicado com sucesso no dia 22/06/2026 em Guarujá-SP.
+Este projeto, denomeado Bingo Master Board, fora editado e utilizado por mim mesmo como um auxiliar visual para os jogadores de um bingo presencial do grupo beneficente [__Cesta DuBem__](https://www.instagram.com/cesta_dubem/). O evento ocorreu com sucesso no dia 22/06/2026, em Guarujá-SP.
 
-Edições feitas em relação ao projeto original:
-* Tema customizado com as cores do CestaDuBem
+Dentro do evento e utilizando este projeto, a minha função foi a de preencher e exibir no telão os números sorteados pela apresentadora.
+
+### Edições feitas em relação ao projeto original:
+* Tema customizado com as cores do Cesta DuBem
 * Traduções alternáveis entre PT-BR e EN
 * Mostrar na tela a penúltima bola sorteada
-* Pequena animação de vitória, ativada ao pressionar P.
+* Pequena animação de vitória, ativada ao pressionar 'P'
 * Todas as funções do projeto original ainda estão disponíveis.
 
 Este fork foi usado e testado no Firefox, mas deve funcionar em outros navegadores (e via mobile).
